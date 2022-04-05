@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pattern_provider/pages/detail_page.dart';
 import 'package:pattern_provider/viewmodel/home_viewmodel.dart';
 import 'package:provider/provider.dart';
 import '../views/item_of_post.dart';
@@ -37,10 +38,10 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
                 viewModel.isLoading
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),
@@ -49,7 +50,8 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
           onPressed: () {
-            // Respond to button press
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => DetailPage()));
           },
           child: const Icon(Icons.add),
         ));
